@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giới thiệu | Công ty ABC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e90ff, #0066cc);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #0066cc;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .service-box {
+      border-left: 5px solid #1e90ff;
+      padding-left: 15px;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #1e90ff;
+    }
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #1e90ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #0066cc;
+}
+
+#form-status {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+  </style>
+</head>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        status.textContent = "✅ Gửi thành công! Chúng tôi sẽ liên hệ sớm.";
+        status.className = "success";
+        form.reset();
+      } else {
+        status.textContent = "❌ Có lỗi xảy ra. Vui lòng thử lại.";
+        status.className = "error";
+      }
+    } catch (error) {
+      status.textContent = "❌ Không thể gửi. Kiểm tra kết nối mạng.";
+      status.className = "error";
+    }
+  });
+</script>
+
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>CÔNG TY ABC</h1>
+    <p>Giải pháp kỹ thuật • Camera • Công nghệ</p>
+  </header>
+
+  <!-- GIỚI THIỆU -->
+  <section>
+    <div class="card">
+      <h2>Giới thiệu</h2>
+      <p>
+        Công ty <strong>ABC</strong> chuyên cung cấp các giải pháp kỹ thuật, lắp đặt
+        camera giám sát và hệ thống công nghệ cho hộ gia đình và doanh nghiệp.
+      </p>
+      <p>
+        Với đội ngũ kỹ thuật giàu kinh nghiệm, chúng tôi cam kết mang đến
+        giải pháp <strong>ổn định – an toàn – hiệu quả</strong>.
+      </p>
+    </div>
+
+    <!-- DỊCH VỤ -->
+    <div class="card">
+      <h2>Dịch vụ</h2>
+      <div class="services">
+        <div class="service-box">
+          <h3>📷 Camera giám sát</h3>
+          <p>Lắp đặt camera nhà xưởng, văn phòng, gia đình.</p>
+        </div>
+        <div class="service-box">
+          <h3>🖥️ Hệ thống mạng</h3>
+          <p>Thi công mạng LAN, WiFi, cấu hình thiết bị.</p>
+        </div>
+        <div class="service-box">
+          <h3>🛠️ Bảo trì kỹ thuật</h3>
+          <p>Bảo trì, sửa chữa hệ thống định kỳ.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIÊN HỆ -->
+    <div class="card">
+      <h2>Liên hệ</h2>
+      <div class="contact-info">
+        <p>📍 Địa chỉ: 123 Nguyễn Văn A, TP.HCM</p>
+        <p>📞 Điện thoại: 0909 123 456</p>
+        <p>✉️ Email: ngovinh050790spkt@gmail.com</p>
+
+Vui lòng điền form liên hệ bên dưới
+
+<form id="contact-form"
+      action="https://formspree.io/f/mgoyzdlz"
+      method="POST">
+
+  <label>Họ và tên</label>
+  <input type="text" name="name" required>
+
+  <label>Email</label>
+  <input type="email" name="email" required>
+
+  <label>Nội dung</label>
+  <textarea name="message" rows="5" required></textarea>
+
+  <button type="submit">Gửi liên hệ</button>
+
+  <p id="form-status"></p>
+</form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <span>Công ty ABC</span>. All rights reserved.
+  </footer>
+
+</body>
+</html>
