@@ -60,6 +60,33 @@ header {
       color: #0066cc;
     }
 
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contact-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-call {
+  background: #1e90ff;
+}
+
+.btn-zalo {
+  background: #00aaff;
+}
+
+
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -221,43 +248,21 @@ Website dùng để giới thiệu vị trí và hình ảnh ngôi nhà cho ngư
       <div class="contact-info">
         <p>📍 Địa chỉ: Đường DL3, Tổ 17, Khu Phố 3B, Phường Thới Hòa, Thành phố Hồ Chí Minh</p>
         <p>✉️ Email: ngovinh0507spkt@gmail.com</p>
-<p>
-  <a href="tel:0972580725" style="
-    display:inline-block;
-    padding:8px 14px;
-    background:#1e90ff;
-    color:#fff;
-    border-radius:6px;
-    text-decoration:none;
-  ">
+
+
+<div class="contact-buttons">
+  <a href="tel:0972580725" class="btn-call">
     📞 Gọi điện
   </a>
 
-  <a href="https://zalo.me/0972580725" target="_blank" style="
-    display:inline-block;
-    padding:8px 14px;
-    background:#00aaff;
-    color:#fff;
-    border-radius:6px;
-    text-decoration:none;
-    margin-left:10px;
-  ">
+  <a href="https://zalo.me/0972580725" target="_blank" class="btn-zalo">
     💬 Zalo 👨🏻
   </a>
 
-<a href="https://zalo.me/0915950227" target="_blank" style="
-    display:inline-block;
-    padding:8px 14px;
-    background:#00aaff;
-    color:#fff;
-    border-radius:6px;
-    text-decoration:none;
-    margin-left:10px;
-  ">
+  <a href="https://zalo.me/0915950227" target="_blank" class="btn-zalo">
     💬 Zalo 👩🏻
   </a>
-
-</p>
+</div>
 
 
 
