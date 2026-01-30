@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Giới thiệu | Công ty ABC</title>
+  <title>Giới thiệu | Ngô Vinh</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Font Google -->
@@ -64,6 +64,27 @@
       gap: 20px;
     }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 280px;        /* CAO HƠN */
+  object-fit: cover;   /* cắt cho vừa khung */
+  border-radius: 10px;
+  background: #f8f8f8;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
     .service-box {
       border-left: 5px solid #1e90ff;
       padding-left: 15px;
@@ -118,91 +139,126 @@ form button:hover {
   color: red;
 }
 
+@media (max-width: 768px) {
+  #prev-btn,
+  #next-btn {
+    display: none;
+  }
+}
+
   </style>
 </head>
 
-<script>
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        status.textContent = "✅ Gửi thành công! Chúng tôi sẽ liên hệ sớm.";
-        status.className = "success";
-        form.reset();
-      } else {
-        status.textContent = "❌ Có lỗi xảy ra. Vui lòng thử lại.";
-        status.className = "error";
-      }
-    } catch (error) {
-      status.textContent = "❌ Không thể gửi. Kiểm tra kết nối mạng.";
-      status.className = "error";
-    }
-  });
-</script>
 
 
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>CÔNG TY ABC</h1>
-    <p>Giải pháp kỹ thuật • Camera • Công nghệ</p>
+    <h1>👩‍👩‍👧‍👦 NGÔ VINH + NGUYỄN CHÂM 👩‍👩‍👧‍👦</h1>
+    <p>Đường DL3, Tổ 17, Khu Phố 3B, Phường Thới Hòa, Thành phố Hồ Chí Minh</p>
   </header>
 
   <!-- GIỚI THIỆU -->
   <section>
-    <div class="card">
-      <h2>Giới thiệu</h2>
-      <p>
-        Công ty <strong>ABC</strong> chuyên cung cấp các giải pháp kỹ thuật, lắp đặt
-        camera giám sát và hệ thống công nghệ cho hộ gia đình và doanh nghiệp.
-      </p>
-      <p>
-        Với đội ngũ kỹ thuật giàu kinh nghiệm, chúng tôi cam kết mang đến
-        giải pháp <strong>ổn định – an toàn – hiệu quả</strong>.
-      </p>
-    </div>
+<p style="font-style:italic;color:#666">
+Website dùng để giới thiệu vị trí và hình ảnh ngôi nhà cho người thân, bạn bè.
+</p>
 
-    <!-- DỊCH VỤ -->
-    <div class="card">
-      <h2>Dịch vụ</h2>
-      <div class="services">
-        <div class="service-box">
-          <h3>📷 Camera giám sát</h3>
-          <p>Lắp đặt camera nhà xưởng, văn phòng, gia đình.</p>
-        </div>
-        <div class="service-box">
-          <h3>🖥️ Hệ thống mạng</h3>
-          <p>Thi công mạng LAN, WiFi, cấu hình thiết bị.</p>
-        </div>
-        <div class="service-box">
-          <h3>🛠️ Bảo trì kỹ thuật</h3>
-          <p>Bảo trì, sửa chữa hệ thống định kỳ.</p>
-        </div>
-      </div>
-    </div>
+   <div class="card">
+  <h2>Bản đồ vị trí</h2>
+
+  <div style="
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+  ">
+    <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2771.3071109673033!2d106.62469938706349!3d11.101597174559444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174cd1c8f694b25%3A0xc34950192899b1c4!2zTmfDtCBWaW5o!5e1!3m2!1svi!2s!4v1769740322683!5m2!1svi!2s"
+  width="100%"
+  height="100%"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
+ </div>
+
+
+<a href="https://maps.app.goo.gl/owjcmGzC94V3hVop7"
+   target="_blank"
+   style="display:inline-block;margin-top:8px;color:#1e90ff;">
+📍 Chỉ đường đến đây
+</a>
+</div>
+
+
+
+<!-- Hình ảnh-->
+<div class="card">
+  <h2>Hình ảnh</h2>
+
+  <div class="gallery">
+    <img src="images/mat tien.jpg" alt="Mặt tiền nhà">
+    <img src="images/Vuon1.jpg" alt="Sân Vườn">
+    <img src="images/Vuon2.jpg" alt="Sân Vườn">
+    <img src="images/Vuon3.jpg" alt="Sân Vườn">
+    <img src="images/Vuon4.jpg" alt="Sân Vườn">
+    <img src="images/Vuon5.jpg" alt="Sân Vườn">
+  </div>
+</div>
+
 
     <!-- LIÊN HỆ -->
     <div class="card">
       <h2>Liên hệ</h2>
       <div class="contact-info">
-        <p>📍 Địa chỉ: 123 Nguyễn Văn A, TP.HCM</p>
-        <p>📞 Điện thoại: 0909 123 456</p>
-        <p>✉️ Email: ngovinh050790spkt@gmail.com</p>
+        <p>📍 Địa chỉ: Đường DL3, Tổ 17, Khu Phố 3B, Phường Thới Hòa, Thành phố Hồ Chí Minh</p>
+        <p>✉️ Email: ngovinh0507spkt@gmail.com</p>
+<p>
+  <a href="tel:0972580725" style="
+    display:inline-block;
+    padding:8px 14px;
+    background:#1e90ff;
+    color:#fff;
+    border-radius:6px;
+    text-decoration:none;
+  ">
+    📞 Gọi điện
+  </a>
+
+  <a href="https://zalo.me/0972580725" target="_blank" style="
+    display:inline-block;
+    padding:8px 14px;
+    background:#00aaff;
+    color:#fff;
+    border-radius:6px;
+    text-decoration:none;
+    margin-left:10px;
+  ">
+    💬 Zalo 👨🏻
+  </a>
+
+<a href="https://zalo.me/0915950227" target="_blank" style="
+    display:inline-block;
+    padding:8px 14px;
+    background:#00aaff;
+    color:#fff;
+    border-radius:6px;
+    text-decoration:none;
+    margin-left:10px;
+  ">
+    💬 Zalo 👩🏻
+  </a>
+
+</p>
+
+
+
 
 Vui lòng điền form liên hệ bên dưới
 
@@ -230,8 +286,172 @@ Vui lòng điền form liên hệ bên dưới
 
   <!-- FOOTER -->
   <footer>
-    © 2026 <span>Công ty ABC</span>. All rights reserved.
+    © 2026 <span>Gia đình Ngô Vinh + Nguyễn Châm</span>. All rights reserved.
   </footer>
 
+
+<div id="lightbox" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+  <!-- Nút đóng -->
+  <span id="lightbox-close" style="
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:32px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+  ">✕</span>
+
+  <!-- Nút trái -->
+  <span id="prev-btn" style="
+    position:absolute;
+    left:20px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+  ">❮</span>
+
+  <!-- Ảnh -->
+  <img id="lightbox-img" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+  ">
+
+<div id="lightbox-counter" style="
+  position:absolute;
+  bottom:25px;
+  color:white;
+  font-size:14px;
+  opacity:0.8;
+">
+</div>
+
+  <!-- Nút phải -->
+  <span id="next-btn" style="
+    position:absolute;
+    right:20px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+  ">❯</span>
+</div>
+
+
+
 </body>
+
+<script>
+  /* ===== FORM LIÊN HỆ ===== */
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          status.textContent = "✅ Gửi thành công! Chúng tôi sẽ liên hệ sớm.";
+          status.className = "success";
+          form.reset();
+        } else {
+          status.textContent = "❌ Có lỗi xảy ra. Vui lòng thử lại.";
+          status.className = "error";
+        }
+      } catch (error) {
+        status.textContent = "❌ Không thể gửi. Kiểm tra kết nối mạng.";
+        status.className = "error";
+      }
+    });
+  }
+
+  /* ===== PHÓNG TO HÌNH ẢNH ===== */
+
+  const images = Array.from(document.querySelectorAll(".gallery img"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("lightbox-close");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+const counter = document.getElementById("lightbox-counter");
+
+  let currentIndex = 0;
+  let startX = 0;
+
+  function showImage(index) {
+    currentIndex = (index + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+counter.textContent = `${currentIndex + 1} / ${images.length}`;
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      showImage(index);
+      lightbox.style.display = "flex";
+    });
+  });
+
+  nextBtn.onclick = (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  };
+
+  prevBtn.onclick = (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  };
+
+  closeBtn.onclick = (e) => {
+    e.stopPropagation();
+    lightbox.style.display = "none";
+  };
+
+  lightbox.onclick = () => {
+    lightbox.style.display = "none";
+  };
+
+  /* ===== VUỐT TRÊN MOBILE ===== */
+  lightboxImg.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightboxImg.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50) showImage(currentIndex + 1); // vuốt trái
+    if (diff < -50) showImage(currentIndex - 1); // vuốt phải
+  });
+
+/* Đóng lightbox khi nhấn ESC */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    const lightbox = document.getElementById("lightbox");
+    if (lightbox) lightbox.style.display = "none";
+  }
+});
+ 
+</script>
+
 </html>
